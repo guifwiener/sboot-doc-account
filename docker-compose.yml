@@ -1,0 +1,13 @@
+services:
+    postgres:
+        image: postgres:14.1-alpine
+        container_name: account_db
+        restart: always
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=admin
+        ports:
+            - 5433:5432
+        volumes:
+            - ./db/postgres-data:/var/lib/postgresql/data
+            - ./db/init:/docker-entrypoint-initdb.d
