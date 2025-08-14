@@ -6,6 +6,9 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
+/**
+ * Class to be saved on log repository
+ */
 @Data
 @Entity
 @Table(name = "rabbitmq_logs")

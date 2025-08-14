@@ -12,6 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * RabbitMQConfiguration class to work as a listener
+ */
 @Slf4j
 @Configuration
 public class RabbitMQConfiguration {
@@ -36,6 +39,11 @@ public class RabbitMQConfiguration {
 
     private static final String QUEUE_NAME = "DOC";
 
+    /**
+     * Listener on queue and save log to repository
+     * @param message WIP message to save on log
+     * @throws Exception
+     */
     @RabbitListener(queues = QUEUE_NAME)
     public void consume(String message) throws Exception {
 
